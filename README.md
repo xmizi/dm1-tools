@@ -4,5 +4,5 @@
 * **nightscout-grafana.json**: nightscout dashboard for Grafana. Data stored in influxDB.
 # note
 Because I generate statistics for multiple people, I have defined an "id" (=person's name). Names are hardcoded in grafana variables. But it is not mandatory. If the stats are generated only for one people, just delete the variable.
-#problems
+# problems
 ISF, Sensitivity values are grab from **openaps → lastSuggested → reason**. For some forks like AIMI is this node sometimes unavailable.... So ISF value are missing
