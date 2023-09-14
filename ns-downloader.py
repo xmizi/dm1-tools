@@ -20,7 +20,8 @@ PB = d_nsapidata["pump"]["pump"]["battery"]["percent"]
 MB = d_nsapidata["upbat"]["display"]
 GL = d_nsapidata["bgnow"]["sgvs"][0]["scaled"]
 DELTA = float(d_nsapidata["delta"]["scaled"])
-SENS = float(d_nsapidata["pump"]["openaps"]["suggested"]["sensitivityRatio"])
+#SENS = float(d_nsapidata["pump"]["openaps"]["suggested"]["sensitivityRatio"])
+SENS = float(d_nsapidata["openaps"]["lastSuggested"]["sensitivityRatio"])
 BAZ = d_nsapidata["basal"]["current"]["basal"]
 TBR = d_nsapidata["basal"]["current"]["treatment"]["rate"]
 PZ = float(d_nsapidata["pump"]["pump"]["reservoir"])
@@ -31,7 +32,8 @@ TIMEDELTA_R = time.time()
 TIMEDELTA_P = (d_nsapidata["delta"]["times"]["recent"] / 1000)
 TIMEDELTA = ((TIMEDELTA_R - TIMEDELTA_P) / 60)
 
-_isf_tmp = d_nsapidata["pump"]["openaps"]["suggested"]["reason"]
+#_isf_tmp = d_nsapidata["pump"]["openaps"]["suggested"]["reason"]
+_isf_tmp = d_nsapidata["openaps"]["lastSuggested"]["reason"]
 _isf_1 = _isf_tmp.split(", ")[3]
 ISF = float(_isf_1.split(": ")[1])
 
