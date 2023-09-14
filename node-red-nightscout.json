@@ -2,49 +2,49 @@
     {
         "id": "43b862075df053cc",
         "type": "tab",
-        "label": "Flow 1",
+        "label": nightscout",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "ed9352103b6dbd3d",
+        "id": "a7d5475a67c99bf0",
         "type": "http request",
         "z": "43b862075df053cc",
         "name": "",
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "https://NIGHTSCOUT_URL/api/v2/properties/",
+        "url": "https://URL-NS/api/v2/properties/",
         "tls": "",
         "persist": true,
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 330,
-        "y": 220,
+        "x": 290,
+        "y": 240,
         "wires": [
             [
-                "8f4aa14294941fd7",
-                "2fb68cf7aee9a96d",
-                "1d298297288ce155",
-                "499ade074b66ecc8",
-                "3f1f4d96631476c0",
-                "6d3d48a71ab1b611",
-                "904c38d1878f56d4",
-                "792bdeac29c39ed7",
-                "38a679166f0592dc",
-                "8c5dfbad6c1fe8c2",
-                "df46e1ea541c3c2a",
-                "473086174bd94b21",
-                "398003b39a3bb23e",
-                "1363c1c1983d76ce",
-                "fb9a5ce0428ce76a"
+                "726df5d395d8eaaf",
+                "3bc03b03ef5d3112",
+                "5981c92adadbec95",
+                "01adc7a489ea6ad8",
+                "2151dc0ad34fd6be",
+                "90850f120ac7f45f",
+                "96cb8743edaea30b",
+                "47f3aeb719b21c53",
+                "1728e8a8df03b2a6",
+                "5fd9c2eacfe132e2",
+                "a98e309f3a595221",
+                "3da8f211c04f1683",
+                "b7f0a83f3cf3dd11",
+                "95b499e108e19caa",
+                "ed24a92d258c2106"
             ]
         ]
     },
     {
-        "id": "41c69d68b99da57c",
+        "id": "1dd4f2c92eed7d25",
         "type": "inject",
         "z": "43b862075df053cc",
         "name": "",
@@ -64,17 +64,17 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 150,
-        "y": 220,
+        "x": 110,
+        "y": 240,
         "wires": [
             [
-                "ed9352103b6dbd3d",
-                "96248fa811fcf246"
+                "a7d5475a67c99bf0",
+                "0de2b0f5db2bd90d"
             ]
         ]
     },
     {
-        "id": "1d298297288ce155",
+        "id": "5981c92adadbec95",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "bg",
@@ -84,16 +84,16 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 140,
+        "x": 870,
+        "y": 160,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "499ade074b66ecc8",
+        "id": "01adc7a489ea6ad8",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "delta",
@@ -103,16 +103,16 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 180,
+        "x": 870,
+        "y": 200,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "3f1f4d96631476c0",
+        "id": "2151dc0ad34fd6be",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "iob",
@@ -122,16 +122,16 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 220,
+        "x": 870,
+        "y": 240,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "6d3d48a71ab1b611",
+        "id": "90850f120ac7f45f",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "cob",
@@ -141,16 +141,16 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 260,
+        "x": 870,
+        "y": 280,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "d410175283982d43",
+        "id": "c6c51fadc101cd93",
         "type": "join",
         "z": "43b862075df053cc",
         "name": "",
@@ -169,17 +169,17 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 1110,
-        "y": 220,
+        "x": 1230,
+        "y": 240,
         "wires": [
             [
-                "ea5f76ae594e89b8",
-                "aa093480d8ee6aa8"
+                "38fd2d3e797b4fb0",
+                "1223bd43828ddc7d"
             ]
         ]
     },
     {
-        "id": "904c38d1878f56d4",
+        "id": "96cb8743edaea30b",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "cartridge",
@@ -189,16 +189,16 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 300,
+        "x": 880,
+        "y": 320,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "ea5f76ae594e89b8",
+        "id": "38fd2d3e797b4fb0",
         "type": "debug",
         "z": "43b862075df053cc",
         "name": "",
@@ -210,12 +210,12 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 1210,
-        "y": 120,
+        "x": 1470,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "aa093480d8ee6aa8",
+        "id": "1223bd43828ddc7d",
         "type": "influxdb out",
         "z": "43b862075df053cc",
         "influxdb": "f474a7ee545d502f",
@@ -227,12 +227,12 @@
         "retentionPolicyV18Flux": "",
         "org": "",
         "bucket": "",
-        "x": 1240,
-        "y": 300,
+        "x": 1480,
+        "y": 360,
         "wires": []
     },
     {
-        "id": "96248fa811fcf246",
+        "id": "0de2b0f5db2bd90d",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "id",
@@ -242,32 +242,32 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 100,
+        "x": 870,
+        "y": 120,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "bb95e6998b577d8a",
+        "id": "4397362c5e7530fa",
         "type": "deduplicate",
         "z": "43b862075df053cc",
         "name": "",
         "keyproperty": "",
         "expiry": "240",
-        "x": 930,
-        "y": 60,
+        "x": 1030,
+        "y": 80,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ],
             []
         ]
     },
     {
-        "id": "2fb68cf7aee9a96d",
+        "id": "3bc03b03ef5d3112",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "cas",
@@ -277,16 +277,16 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 60,
+        "x": 870,
+        "y": 80,
         "wires": [
             [
-                "bb95e6998b577d8a"
+                "4397362c5e7530fa"
             ]
         ]
     },
     {
-        "id": "792bdeac29c39ed7",
+        "id": "47f3aeb719b21c53",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "basal",
@@ -296,16 +296,16 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 340,
+        "x": 870,
+        "y": 360,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "38a679166f0592dc",
+        "id": "1728e8a8df03b2a6",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "TBR",
@@ -315,16 +315,16 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 380,
+        "x": 870,
+        "y": 400,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "8c5dfbad6c1fe8c2",
+        "id": "5fd9c2eacfe132e2",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "zasobnik",
@@ -334,16 +334,16 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 420,
+        "x": 880,
+        "y": 440,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "df46e1ea541c3c2a",
+        "id": "a98e309f3a595221",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "mobil bat",
@@ -353,16 +353,16 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 460,
+        "x": 880,
+        "y": 480,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "473086174bd94b21",
+        "id": "3da8f211c04f1683",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "pump bat",
@@ -372,73 +372,73 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 500,
+        "x": 880,
+        "y": 520,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "398003b39a3bb23e",
+        "id": "b7f0a83f3cf3dd11",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "ISF",
-        "func": "var ISF\nmsg.payload = msg.payload.pump.openaps.suggested.reason.split(',');\nmsg.payload = parseFloat(msg.payload[3].substr(6));\nmsg.desc = \"isf\";\nreturn msg;",
+        "func": "var ISF\n//msg.payload = msg.payload.pump.openaps.suggested.reason.split(',');\nmsg.payload = msg.payload.openaps.lastSuggested.reason.split(',');\nmsg.payload = parseFloat(msg.payload[3].substr(6));\nmsg.desc = \"isf\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 540,
+        "x": 870,
+        "y": 560,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "1363c1c1983d76ce",
+        "id": "95b499e108e19caa",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "sens",
-        "func": "msg.payload = msg.payload.pump.openaps.suggested.sensitivityRatio;\nmsg.desc=\"sens\";\nreturn msg;",
+        "func": "//msg.payload = msg.payload.pump.openaps.suggested.sensitivityRatio;\nmsg.payload = msg.payload.openaps.lastSuggested.sensitivityRatio;\nmsg.desc=\"sens\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 580,
+        "x": 870,
+        "y": 600,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "fb9a5ce0428ce76a",
+        "id": "ed24a92d258c2106",
         "type": "function",
         "z": "43b862075df053cc",
         "name": "targetBG",
-        "func": "msg.payload = msg.payload.pump.openaps.suggested.targetBG;\nmsg.desc =\"targetBG\";\nreturn msg;",
+        "func": "//msg.payload = msg.payload.pump.openaps.suggested.targetBG;\nmsg.payload = msg.payload.openaps.lastSuggested.targetBG;\nmsg.desc =\"targetBG\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 620,
+        "x": 880,
+        "y": 640,
         "wires": [
             [
-                "d410175283982d43"
+                "c6c51fadc101cd93"
             ]
         ]
     },
     {
-        "id": "8f4aa14294941fd7",
+        "id": "726df5d395d8eaaf",
         "type": "debug",
         "z": "43b862075df053cc",
         "name": "",
@@ -449,8 +449,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 210,
-        "y": 80,
+        "x": 310,
+        "y": 100,
         "wires": []
     },
     {
