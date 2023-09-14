@@ -1,0 +1,483 @@
+[
+    {
+        "id": "43b862075df053cc",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ed9352103b6dbd3d",
+        "type": "http request",
+        "z": "43b862075df053cc",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://NIGHTSCOUT_URL/api/v2/properties/",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 330,
+        "y": 220,
+        "wires": [
+            [
+                "8f4aa14294941fd7",
+                "2fb68cf7aee9a96d",
+                "1d298297288ce155",
+                "499ade074b66ecc8",
+                "3f1f4d96631476c0",
+                "6d3d48a71ab1b611",
+                "904c38d1878f56d4",
+                "792bdeac29c39ed7",
+                "38a679166f0592dc",
+                "8c5dfbad6c1fe8c2",
+                "df46e1ea541c3c2a",
+                "473086174bd94b21",
+                "398003b39a3bb23e",
+                "1363c1c1983d76ce",
+                "fb9a5ce0428ce76a"
+            ]
+        ]
+    },
+    {
+        "id": "41c69d68b99da57c",
+        "type": "inject",
+        "z": "43b862075df053cc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "150",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "ed9352103b6dbd3d",
+                "96248fa811fcf246"
+            ]
+        ]
+    },
+    {
+        "id": "1d298297288ce155",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "bg",
+        "func": "msg.payload = msg.payload.bgnow.last / 18;\nmsg.desc=\"bg\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 140,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "499ade074b66ecc8",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "delta",
+        "func": "msg.payload = msg.payload.delta.scaled;\nmsg.desc=\"delta\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 180,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "3f1f4d96631476c0",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "iob",
+        "func": "msg.payload = msg.payload.iob.iob;\nmsg.desc=\"iob\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 220,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "6d3d48a71ab1b611",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "cob",
+        "func": "msg.payload=msg.payload.cob.cob;\nmsg.desc=\"cob\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 260,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "d410175283982d43",
+        "type": "join",
+        "z": "43b862075df053cc",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "desc",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "14",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 1110,
+        "y": 220,
+        "wires": [
+            [
+                "ea5f76ae594e89b8",
+                "aa093480d8ee6aa8"
+            ]
+        ]
+    },
+    {
+        "id": "904c38d1878f56d4",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "cartridge",
+        "func": "msg.payload=msg.payload.pump.data.reservoir.value;\nmsg.desc=\"zasobnik\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 300,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "ea5f76ae594e89b8",
+        "type": "debug",
+        "z": "43b862075df053cc",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "aa093480d8ee6aa8",
+        "type": "influxdb out",
+        "z": "43b862075df053cc",
+        "influxdb": "f474a7ee545d502f",
+        "name": "",
+        "measurement": "testovaci",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "",
+        "bucket": "",
+        "x": 1240,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "96248fa811fcf246",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "id",
+        "func": "msg.payload = \"lukin\";\nmsg.desc=\"id\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 100,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "bb95e6998b577d8a",
+        "type": "deduplicate",
+        "z": "43b862075df053cc",
+        "name": "",
+        "keyproperty": "",
+        "expiry": "240",
+        "x": 930,
+        "y": 60,
+        "wires": [
+            [
+                "d410175283982d43"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2fb68cf7aee9a96d",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "cas",
+        "func": "msg.payload = msg.payload.bgnow.mills;\nmsg.desc=\"cas\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 60,
+        "wires": [
+            [
+                "bb95e6998b577d8a"
+            ]
+        ]
+    },
+    {
+        "id": "792bdeac29c39ed7",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "basal",
+        "func": "msg.payload=msg.payload.basal.current.basal;\nmsg.desc=\"basal\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 340,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "38a679166f0592dc",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "TBR",
+        "func": "msg.payload=msg.payload.basal.current.tempbasal;\nmsg.desc=\"tbr\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 380,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "8c5dfbad6c1fe8c2",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "zasobnik",
+        "func": "msg.payload=msg.payload.pump.pump.reservoir;\nmsg.desc=\"zasobnik\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 420,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "df46e1ea541c3c2a",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "mobil bat",
+        "func": "msg.payload=msg.payload.upbat.min.battery;\nmsg.desc=\"mbatery\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 460,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "473086174bd94b21",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "pump bat",
+        "func": "msg.payload=msg.payload.pump.pump.battery.percent;\nmsg.desc=\"pbatery\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 500,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "398003b39a3bb23e",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "ISF",
+        "func": "var ISF\nmsg.payload = msg.payload.pump.openaps.suggested.reason.split(',');\nmsg.payload = parseFloat(msg.payload[3].substr(6));\nmsg.desc = \"isf\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 540,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "1363c1c1983d76ce",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "sens",
+        "func": "msg.payload = msg.payload.pump.openaps.suggested.sensitivityRatio;\nmsg.desc=\"sens\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 580,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "fb9a5ce0428ce76a",
+        "type": "function",
+        "z": "43b862075df053cc",
+        "name": "targetBG",
+        "func": "msg.payload = msg.payload.pump.openaps.suggested.targetBG;\nmsg.desc =\"targetBG\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 620,
+        "wires": [
+            [
+                "d410175283982d43"
+            ]
+        ]
+    },
+    {
+        "id": "8f4aa14294941fd7",
+        "type": "debug",
+        "z": "43b862075df053cc",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 210,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f474a7ee545d502f",
+        "type": "influxdb",
+        "hostname": "influx.home.local",
+        "port": "8086",
+        "protocol": "http",
+        "database": "nightscout",
+        "name": "infux",
+        "usetls": false,
+        "tls": "d50d0c9f.31e858",
+        "influxdbVersion": "1.x",
+        "url": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "d50d0c9f.31e858",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false
+    }
+]
